@@ -33,7 +33,7 @@ app.get('/book', (req, res) => {
                 })
                 throw err
             }
-            if (rows[0]['count(*)'] >= 0) {
+            if (rows[0]['count(*)'] > 0) {
                 console.log('hit')
                 connection.query('select `name`, `author`, `summary`, `price`, `publisher`, `cover` from `data` where `isbn` = ?', isbn, (err, rows) => {
                     if (err) {
